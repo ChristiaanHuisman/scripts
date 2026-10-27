@@ -25,6 +25,7 @@ Clone this repository wherever you want to keep your scripts, e.g., `$HOME\scrip
 3. **Add the following to your profile** to automatically load all PowerShell scripts in the repository's `powershell` directory:
 
    ```powershell
+   # Automatically load all custom scripts.
    Get-ChildItem "$HOME\scripts\powershell\*.ps1" | ForEach-Object { . $_.FullName }
    ```
 
