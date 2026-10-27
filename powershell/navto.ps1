@@ -1,18 +1,20 @@
 # Navigates to the specified directory inside the current user directory.
+# Use -Open flag to also automatically open File Explorer at the specified directory.
 
 function navto {
   param(
-    [string]$dirName
+    [string]$DirName,
+    [switch]$Open
   )
 
-  if ($dirName -eq "") {
+  if ($DirName -eq "") {
     Write-Host "`nNo directory name specified.`n"
     return
   }
 
   Write-Host "`nThis function only searches inside the current user directory."
 
-  $paths = @(Get-ChildItem -Path "$HOME" -Filter $dirName -Directory -Recurse -ErrorAction SilentlyContinue |
+  $paths = @(Get-ChildItem -Path "$HOME" -Filter $DirName -Directory -Recurse -ErrorAction SilentlyContinue |
     Sort-Object LastWriteTime -Descending |
     Select-Object -ExpandProperty FullName)
 
@@ -38,4 +40,8 @@ function navto {
   }
 
   Write-Host ""
+
+  if ($Open) {
+    Invoke-Item -Path $paths[0]
+  }
 }
