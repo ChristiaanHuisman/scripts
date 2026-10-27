@@ -2,46 +2,56 @@
 # Use -Open flag to also automatically open File Explorer at the specified directory.
 
 function Navigate-To {
-  param(
+  param (
     [string]$DirName,
     [switch]$Open
   )
 
+  Write-Host ""
+
   if ($DirName -eq "") {
-    Write-Host "`nNo directory name specified.`n"
+    Write-Host "No directory name specified."
+    Write-Host ""
+
     return
   }
 
-  Write-Host "`nThis function only searches inside the current user directory."
+  Write-Host "This function only searches inside the current user directory."
 
-  $paths = @(Get-ChildItem -Path "$HOME" -Filter $DirName -Directory -Recurse -ErrorAction SilentlyContinue |
+  $paths = @(
+    Get-ChildItem -Path "$HOME" -Filter $DirName -Directory -Recurse -ErrorAction SilentlyContinue |
     Sort-Object LastWriteTime -Descending |
-    Select-Object -ExpandProperty FullName)
+    Select-Object -ExpandProperty FullName
+  )
 
   if ($paths.Count -eq 0) {
-    Write-Host "No directory found with the specified name inside user directory."
+    Write-Host "No directory found with the specified name."
   }
   elseif ($paths.Count -eq 1) {
-    Write-Host "Navigating to specified directory inside user directory."
+    Write-Host "Navigating to specified directory."
+
     Set-Location $paths[0]
   }
   else {
-    Write-Host "`nMultiple directories found:"
+    Write-Host ""
+    Write-Host "Multiple directories found:"
     Write-Host "$($paths[0]) - Last modified"
 
     for ($i = 1; $i -lt $paths.Count; $i++) {
       Write-Host $paths[$i]
     }
 
-    Write-Host "`nNavigating to last modified specified directory inside user directory."
-    Write-Host "If this is not the desired directory, run cd with the copied desired path, e.g.:"
+    Write-Host ""
+    Write-Host "Navigating to last modified specified directory."
+    Write-Host "If this is not the desired directory, run cd with the desired path, e.g.:"
     Write-Host "cd $($paths[1])"
+
     Set-Location $paths[0]
   }
 
   Write-Host ""
 
-  if ($Open) {
+  if ($Open -and $paths.Count -ne 0) {
     Invoke-Item -Path $paths[0]
   }
 }
