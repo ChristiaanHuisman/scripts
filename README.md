@@ -2,6 +2,8 @@
 
 Personal scripts I've written and how to use them.
 
+**Note:** These scripts are currently intended for Windows and may rely on Windows-specific paths or functionality.
+
 Clone this repository wherever you want to keep your scripts, e.g., `$HOME\`.
 
 ```powershell
@@ -25,7 +27,7 @@ git clone https://github.com/ChristiaanHuisman/scripts.git
    }
    ```
 
-2. **Open your profile file.** It will be named something like `Microsoft.PowerShell_profile.ps1`.
+2. **Open your profile file** in your preferred editor. It will be named something like `Microsoft.PowerShell_profile.ps1`.
 
 3. **Add the following to your profile** to automatically load all PowerShell scripts in the repository's `powershell` directory:
 
