@@ -12,20 +12,26 @@ Clone this repository wherever you want to keep your scripts, e.g., `$HOME\scrip
 
    ```powershell
    if (!(Test-Path -Path $PROFILE)) {
-      New-Item -ItemType File -Path $PROFILE -Force
-      Write-Host "Profile created at: $PROFILE"
+     New-Item -ItemType File -Path $PROFILE -Force
+     Write-Host "Profile created at: $PROFILE"
    }
    else {
-      Write-Host "Profile already exists at: $PROFILE"
+     Write-Host "Profile already exists at: $PROFILE"
    }
    ```
 
-2. **Open your profile file.** It will be named something like `Microsoft.PowerShell_profile.ps1`. You can open it with your preferred editor.
+2. **Open your profile file.** It will be named something like `Microsoft.PowerShell_profile.ps1`.
 
-3. **Add the scripts you want to invoke** by dot-sourcing them in your profile using `. ` followed by the script path. For example:
+3. **Add the following to your profile** to automatically load all PowerShell scripts in the repository's `powershell` directory:
 
    ```powershell
-   . "$HOME\scripts\powershell\navto.ps1"
+   Get-ChildItem "$HOME\scripts\powershell\*.ps1" | ForEach-Object { . $_.FullName }
    ```
 
-   Repeat this for each script you want available in your PowerShell sessions.
+   Replace the path if you cloned the repository somewhere else.
+
+4. **Restart PowerShell** or reload your profile to load the scripts.
+
+### Adding scripts
+
+Place any `.ps1` files you want to use in the `powershell` directory. They will be loaded automatically whenever PowerShell starts.

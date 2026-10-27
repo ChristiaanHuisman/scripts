@@ -1,7 +1,7 @@
 # Navigates to the specified directory inside the current user directory.
 # Use -Open flag to also automatically open File Explorer at the specified directory.
 
-function navto {
+function Navigate-To {
   param(
     [string]$DirName,
     [switch]$Open
@@ -45,3 +45,5 @@ function navto {
     Invoke-Item -Path $paths[0]
   }
 }
+
+New-Alias -Name navto -Value Navigate-To
