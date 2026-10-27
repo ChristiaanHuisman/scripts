@@ -2,7 +2,11 @@
 
 Personal scripts I've written and how to use them.
 
-Clone this repository wherever you want to keep your scripts, e.g., `$HOME\scripts\`.
+Clone this repository wherever you want to keep your scripts, e.g., `$HOME\`.
+
+```bash
+git clone https://github.com/ChristiaanHuisman/scripts.git
+```
 
 ## PowerShell
 
