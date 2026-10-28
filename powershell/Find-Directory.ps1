@@ -1,7 +1,7 @@
 # Navigates to the specified directory inside the current user directory.
 # Use -Open flag to also automatically open File Explorer at the specified directory.
 
-function Navigate-To {
+function Find-Directory {
   param (
     [string]$DirName,
     [switch]$Open
@@ -56,4 +56,4 @@ function Navigate-To {
   }
 }
 
-New-Alias -Name navto -Value Navigate-To
+New-Alias -Name finddir -Value Find-Directory
