@@ -47,4 +47,4 @@ git clone https://github.com/ChristiaanHuisman/scripts.git
 
 ### Adding scripts
 
-Place any `.ps1` files you want to use in the `powershell` directory. They will be loaded automatically whenever PowerShell starts.
+Place any `.ps1` file(s) you want to use in the `powershell` directory. They will be loaded automatically whenever PowerShell starts.
