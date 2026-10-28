@@ -20,10 +20,15 @@ git clone https://github.com/ChristiaanHuisman/scripts.git
    ```powershell
    if (!(Test-Path -Path $PROFILE)) {
      New-Item -ItemType File -Path $PROFILE -Force
-     Write-Host "Profile created at: $PROFILE"
-   }
-   else {
-     Write-Host "Profile already exists at: $PROFILE"
+     Write-Host "`nProfile created at:"
+     Write-Host "$PROFILE`n"
+     cd (Split-Path $PROFILE)
+     Invoke-Item -Path (Split-Path $PROFILE)
+   } else {
+     Write-Host "`nProfile already exists at:"
+     Write-Host "$PROFILE`n"
+     cd (Split-Path $PROFILE)
+     Invoke-Item -Path (Split-Path $PROFILE)
    }
    ```
 
