@@ -1,14 +1,14 @@
 # Scripts
 
-Personal scripts I've written and how to use them.
+Personal scripts I've written, along with instructions on how to use them.
 
-**Note:** These scripts are currently intended for Windows systems running PowerShell 5.1 or later. They may rely on Windows-specific paths or functionality.
+**Note:** These scripts are primarily intended for Windows systems running PowerShell 5.1 or later. They may rely on Windows-specific paths or functionality.
 
-Clone this repository wherever you want to keep your scripts, e.g., `$HOME\`.
+Clone this repository, or your own fork, to a location of your choice (e.g., `$HOME`):
 
 ```powershell
 cd $HOME
-git clone https://github.com/ChristiaanHuisman/scripts.git
+git clone <repository-url>
 ```
 
 ## PowerShell
