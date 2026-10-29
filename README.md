@@ -43,6 +43,14 @@ git clone https://github.com/ChristiaanHuisman/scripts.git
 
 4. **Restart PowerShell** or reload your profile to load the scripts.
 
+5. **If script execution is disabled**, PowerShell may prevent your profile and custom scripts from loading. If you encounter an error stating that running scripts is disabled, run the following command in PowerShell:
+
+   ```powershell
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+
+   Then restart PowerShell or reload your profile.
+
 ### Adding scripts
 
 Place any `.ps1` file(s) you want to use in the `powershell` directory. They will be loaded automatically whenever PowerShell starts.
