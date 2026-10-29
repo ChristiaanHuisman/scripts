@@ -2,7 +2,7 @@
 
 Personal scripts I've written and how to use them.
 
-**Note:** These scripts are currently intended for Windows and may rely on Windows-specific paths or functionality.
+**Note:** These scripts are currently intended for Windows systems running PowerShell 5.1 or later. They may rely on Windows-specific paths or functionality.
 
 Clone this repository wherever you want to keep your scripts, e.g., `$HOME\`.
 
@@ -20,13 +20,11 @@ git clone https://github.com/ChristiaanHuisman/scripts.git
    ```powershell
    if (!(Test-Path -Path $PROFILE)) {
      New-Item -ItemType File -Path $PROFILE -Force
-     Write-Host "`nProfile created at:"
-     Write-Host "$PROFILE`n"
+     Write-Host "`nProfile created at:`n$PROFILE"
      cd (Split-Path $PROFILE)
      Invoke-Item -Path (Split-Path $PROFILE)
    } else {
-     Write-Host "`nProfile already exists at:"
-     Write-Host "$PROFILE`n"
+     Write-Host "`nProfile already exists at:`n$PROFILE`n"
      cd (Split-Path $PROFILE)
      Invoke-Item -Path (Split-Path $PROFILE)
    }
