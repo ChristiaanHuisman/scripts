@@ -28,7 +28,6 @@ function Copy-Guids {
   }
 
   Set-Clipboard -Value $guids
-
   Write-Host
 }
 

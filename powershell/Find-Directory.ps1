@@ -7,11 +7,11 @@ function Find-Directory {
     [switch]$Open
   )
 
-  Write-Host ""
+  Write-Host
 
   if ($DirName -eq "") {
     Write-Host "No directory name specified."
-    Write-Host ""
+    Write-Host
 
     return
   }
@@ -29,11 +29,10 @@ function Find-Directory {
   }
   elseif ($paths.Count -eq 1) {
     Write-Host "Navigating to specified directory."
-
     Set-Location $paths[0]
   }
   else {
-    Write-Host ""
+    Write-Host
     Write-Host "Multiple directories found:"
     Write-Host "$($paths[0]) - Last modified"
 
@@ -41,19 +40,18 @@ function Find-Directory {
       Write-Host $paths[$i]
     }
 
-    Write-Host ""
+    Write-Host
     Write-Host "Navigating to last modified specified directory."
     Write-Host "If this is not the desired directory, run cd with the desired path, e.g.:"
     Write-Host "cd $($paths[1])"
-
     Set-Location $paths[0]
   }
 
-  Write-Host ""
+  Write-Host
 
   if ($Open -and $paths.Count -ne 0) {
     Invoke-Item -Path $paths[0]
   }
 }
 
-New-Alias -Name finddir -Value Find-Directory
+New-Alias -Name findir -Value Find-Directory

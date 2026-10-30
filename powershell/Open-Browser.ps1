@@ -7,7 +7,7 @@ function Open-Browser {
     [string]$Link
   )
 
-  Write-Host ""
+  Write-Host
 
   $presets = @{
     "yt" = "youtube.com";
@@ -25,9 +25,8 @@ function Open-Browser {
   $Link = $presets[$Link.ToLower()]
 
   Start-Process "https://$Link"
-
   Write-Host "Opening default browser."
-  Write-Host ""
+  Write-Host
 }
 
 New-Alias -Name browser -Value Open-Browser
