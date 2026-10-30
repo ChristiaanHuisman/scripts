@@ -11,7 +11,7 @@ function Copy-Guids {
   $amount = $Potential -as [int]
 
   if ($null -eq $amount -or $amount -lt 1) {
-    Write-Host "This function only takes a positive number as an argument."
+    Write-Host "This function only takes a positive integer as an argument."
     Write-Host
 
     return
