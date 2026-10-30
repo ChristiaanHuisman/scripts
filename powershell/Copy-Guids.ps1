@@ -17,20 +17,27 @@ function Copy-Guids {
     return
   }
 
-  Write-Host "UUID v4:"
-
   $guids = [Collections.Generic.List[string]]::new($amount)
 
   for ($i = 0; $i -lt $amount; $i++) {
     $guid = [Guid]::NewGuid().ToString().ToUpper()
     $guids.Add($guid)
-
-    Write-Host $guid
   }
 
+  if ($Print) {
+    Write-Host "UUID v4:"
+
+    foreach ($entry in $guids) {
+      Write-Host $entry
+    }
+
+    Write-Host
+  }
+
+  $char = @("s", "")[$amount -eq 1]
+
   Set-Clipboard -Value $guids
-  Write-Host
-  Write-Host "Copied to clipboard."
+  Write-Host "Copied $amount UUID v4$char to clipboard."
   Write-Host
 }
 
