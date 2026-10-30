@@ -2,7 +2,8 @@
 
 function Copy-Guids {
   param (
-    [string]$Potential = "1"
+    [string]$Potential = "1",
+    [switch]$Print
   )
 
   Write-Host
@@ -28,6 +29,8 @@ function Copy-Guids {
   }
 
   Set-Clipboard -Value $guids
+  Write-Host
+  Write-Host "Copied to clipboard."
   Write-Host
 }
 
