@@ -17,18 +17,17 @@ function Copy-Guids {
     return
   }
 
-  $guids = [Collections.Generic.List[string]]::new($amount)
-
-  for ($i = 0; $i -lt $amount; $i++) {
-    $guid = [Guid]::NewGuid().ToString().ToUpper()
-    $guids.Add($guid)
-  }
+  $guids = [Collections.Generic.List[string]]@(
+    for ($i = 0; $i -lt $amount; $i++) {
+      [Guid]::NewGuid().ToString().ToUpper()
+    }
+  )
 
   if ($Print) {
     Write-Host "UUID v4:"
 
-    foreach ($entry in $guids) {
-      Write-Host $entry
+    foreach ($guid in $guids) {
+      Write-Host $guid
     }
 
     Write-Host
