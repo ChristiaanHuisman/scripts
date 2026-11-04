@@ -20,11 +20,17 @@ function Open-Browser {
     "takealot" = "takealot.com";
     "wootware" = "wootware.co.za";
     "evetech" = "evetech.co.za";
+    "lamzu" = "lamzu.net";
+    "keychron" = "launcher.keychron.com";
   }
 
-  $Link = $presets[$Link.ToLower()]
+  if ($presets.ContainsKey($Link)) {
+    $Link = $presets[$Link.ToLower()]
+  }
 
-  Start-Process "https://$Link"
+  $Link = "https://$Link"
+
+  Start-Process $Link
   Write-Host "Opening default browser."
   Write-Host
 }
