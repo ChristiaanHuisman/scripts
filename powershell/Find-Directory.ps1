@@ -9,6 +9,8 @@ function Find-Directory {
 
   Write-Host
 
+  $DirName = $DirName.Trim()
+
   if ($DirName -eq "") {
     Write-Host "No directory name specified."
     Write-Host

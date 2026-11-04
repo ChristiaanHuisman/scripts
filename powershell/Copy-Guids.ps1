@@ -8,6 +8,7 @@ function Copy-Guids {
 
   Write-Host
 
+  $Potential = $Potential.Trim()
   $amount = $Potential -as [int]
 
   if ($null -eq $amount -or $amount -lt 1) {

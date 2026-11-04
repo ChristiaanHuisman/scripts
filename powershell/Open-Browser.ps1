@@ -7,14 +7,13 @@ function Open-Browser {
     [string]$Link
   )
 
-  Write-Host
-
   $presets = @{
     "yt" = "youtube.com";
     "ytm" = "music.youtube.com";
     "spot" = "open.spotify.com";
     "gmail" = "mail.google.com";
     "github" = "github.com";
+    "gpt" = "chatgpt.com";
     "dstv" = "dstv.stream";
     "netflix" = "netflix.com";
     "takealot" = "takealot.com";
@@ -22,15 +21,18 @@ function Open-Browser {
     "evetech" = "evetech.co.za";
     "lamzu" = "lamzu.net";
     "keychron" = "launcher.keychron.com";
+    "linkedin" = "linkedin.com";
   }
+
+  Write-Host
+
+  $Link = $Link.Trim().ToLower()
 
   if ($presets.ContainsKey($Link)) {
-    $Link = $presets[$Link.ToLower()]
+    $Link = $presets[$Link]
   }
 
-  $Link = "https://$Link"
-
-  Start-Process $Link
+  Start-Process "https://$Link"
   Write-Host "Opening default browser."
   Write-Host
 }
